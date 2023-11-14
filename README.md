@@ -1,67 +1,74 @@
-## Send Normal Mail -
-Run this all `command` step by step:
+Install and Run Commands for this Projects
+==========================================
 
-    ```bash
-1. php artisan make:mail SendTestMail --markdown=emails.testmail
+### Send Normal Mail -
 
-2. \Mail::to('nirob@gmail.com')->send(new \App\Mail\SendTestMail());
+| Command | Description |
+| ------- | ----------- |
+| `php artisan make:mail SendTestMail --markdown=emails.testmail` | Make Mail Class Setup |
+| `\Mail::to('nirob@gmail.com')->send(new \App\Mail\SendTestMail())` | Write in in the Route |
+| `php artisan serv` | Run the server |
 
-3. php artisan serv
-    ```
 
-## Send Mail with Database - Queue and Jobs -
-Run this all `command` step by step:
+### Send Mail with Database - Queue and Jobs -
 
-    ```bash
-1. php artisan make:job SendMailJobs
-2. in handle method -----> \Mail::to('nirob@gmail.com')->send(new \App\Mail\SendTestMail());
-3. in Route--------------> dispatch(new SendTestMail());
-4. php artisan queue:table
-5. php artisan migrate:fresh
-6. php artisan serv
-7. php artisan queue:listen
-8. php artisan serv
-    ```
+| Command | Description |
+| ------- | ----------- |
+| `php artisan make:job SendMailJobs` | Make Job Class |
+| `\Mail::to('nirob@gmail.com')->send(new \App\Mail\SendTestMail())` | Write in handle method |
+| `dispatch(new SendTestMail());` | Write in Route |
+| `php artisan queue:table` | Make a migration table for queue jobs |
+| `php artisan migrate:fresh` | Migrate fresh database |
+| `php artisan serv` | Run the server |
+| `php artisan queue:listen` | Running Queues in the server |
+| `php artisan serv` | Run the server |
 
-## Send Mail with Redis - Queue and Jobs - `command:`
+### Send Mail with Redis - Queue and Jobs -
+
 Open PowerShell as `Administrator` and run this command to enable Windows Subsystem for Linux `(WSL)`:
 
-    ```bash
-    Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-    ```
+| Command | Description |
+| ------- | ----------- |
+| `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux` | For Linux environment |
 
-### Launch Microsoft `Windows Store` and install ubuntu -
-    
-    ```bash
-sudo apt-add-repository ppa:redislabs/redis
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install redis-server
-    ```
+Launch Microsoft `Windows Store` and install ubuntu -
 
-### Check Redis install or Not? -
-redis-cli
-ping
+| Command | Description |
+| ------- | ----------- |
+| `sudo apt-add-repository ppa:redislabs/redis` | Add repo for redis in the linux server |
+| `sudo apt-get update` | Update linux server |
+| `sudo apt-get upgrade` | Upgrade linux server |
+| `sudo apt-get install redis-server` | Install redis in the linux server |
 
-    ```bash
-sudo service redis-server start
-sudo service redis-server stop
-sudo service redis-server restart
-sudo service redis-server status
-    ```
-Run this all `command` in your project bash step by step:
+Check Redis install or Not? -
 
-    ```bash
-composer require predis/predis
-    ```
+| Command | Description |
+| ------- | ----------- |
+| `redis-cli` | Check redis is running or not |
+| `ping` | Hit ping for pong |
+| `sudo service redis-server start` | For redis server start |
+| `sudo service redis-server stop` | For redis server stop |
+| `sudo service redis-server restart` | For redis server restart |
+| `sudo service redis-server status` | For redis server status |
+
+Run this `command` in your project bash step by step:
+
+| Command | Description |
+| ------- | ----------- |
+| `composer require predis/predis` | Install Dependencies in laravel project |
 
 `Change Config/database `
-		phpredis to predis
 
-    ```bash
-php artisan queue:listen
-php artisan serv
-    ```
+| Command | Description |
+| ------- | ----------- |
+| `phpredis to predis` | Change on this file |
+
+Run this all `commands` in your project bash step by step:
+
+| Command | Description |
+| ------- | ----------- |
+| `php artisan queue:listen` | Running Queues in the server |
+| `php artisan serv` | Run the server |
 
 ## Connect with Me
 
